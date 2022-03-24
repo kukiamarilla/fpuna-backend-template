@@ -17,6 +17,11 @@ cp env-variables.sh.example env-variables.sh
 ```
 y rellenar con la variables de entorno.
 
+Por último se debe sar permisos de ejecución a los scripts de migración y despliegue
+```bash
+chmod +x migrate.sh deploy.sh
+```
+
 ## Uso
 
 Para ejecutar las migraciones:
