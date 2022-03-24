@@ -9,7 +9,7 @@
 
 ## Configuración
 
-Se debe configurar el Datasource en Wildfly para el acceso a la base de datos ([Instrucciones](https://www.stenusys.com/how_to_setup_postgresql_datasource_with_wildfly/)) y modificar el archivo `src/main/resources/META-INF/persistance.xml` de modo a utilizar el Datasource credo
+Se debe configurar el Datasource en Wildfly para el acceso a la base de datos ([Instrucciones](https://www.stenusys.com/how_to_setup_postgresql_datasource_with_wildfly/)) y modificar el archivo `src/main/resources/META-INF/persistance.xml` de modo a utilizar el Datasource creado:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
