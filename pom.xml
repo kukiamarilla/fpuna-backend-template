@@ -17,19 +17,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    <db.name>${backend.db.name}</db.name>
+    <db.username>${backend.db.username}</db.username>
+    <db.password>${backend.db.password}</db.password>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>org.hibernate.javax.persistence</groupId>
-      <artifactId>hibernate-jpa-2.0-api</artifactId>
-      <version>1.0.1.Final</version>	
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-entitymanager</artifactId>
-      <version>5.0.1.Final</version>
-    </dependency>
     <dependency>
       <groupId>javax.ejb</groupId>
       <artifactId>ejb-api</artifactId>
@@ -48,17 +41,25 @@
       <version>2.1.1</version>
     </dependency>
     <dependency>
-      <groupId>jakarta.enterprise</groupId>
-      <artifactId>jakarta.enterprise.cdi-api</artifactId>
-      <version>3.0.1</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>org.hibernate.orm</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>6.0.0.CR2</version>
     </dependency>
-  
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>javax.persistence-api</artifactId>
+      <version>2.2</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.inject</groupId>
+      <artifactId>javax.inject</artifactId>
+      <version>1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20220320</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -99,6 +100,23 @@
           <artifactId>wildfly-maven-plugin</artifactId>
           <version>2.1.0.Beta1</version>
         </plugin>
+        <plugin>
+          <groupId>org.flywaydb</groupId>
+          <artifactId>flyway-maven-plugin</artifactId>
+          <version>4.0</version>
+          <configuration>
+              <url>jdbc:postgresql://localhost:5432/${db.name}</url>
+              <user>${db.name}</user>
+              <password>${db.name}</password>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.postgresql</groupId>
+              <artifactId>postgresql</artifactId>
+              <version>42.3.3</version>
+            </dependency>          
+          </dependencies>
+      </plugin>
       </plugins>
     </pluginManagement>
   </build>
