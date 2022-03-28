@@ -5,7 +5,7 @@
 - Java
 - Maven
 - Wildfly
-- PostgresQl
+- PostgreSQL
 
 ## Configuración
 
